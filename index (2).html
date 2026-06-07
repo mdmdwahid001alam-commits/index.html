@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  
+  <title>Attendance Calculator App</title>
+  <style>
+  body{ 
+    background-color:skyblue;
+  }
+    div{
+      width:53%;
+      height:445px;
+      padding:70px;
+      background-color:burlywood;
+    }
+    input{
+      width:75%;
+      padding:8px;
+    }
+    h1{
+      font-family:georgia;
+      text-decoration:underline;
+      
+    }
+    button{
+      width:140px;
+      background-color:green;
+      color: black;
+    }
+    
+   #calculated{
+     font-size:18px;
+     font-weight:bold;
+   } 
+  </style>
+</head>
+
+<body>
+  <div>
+    <h1>Attendance Calculator </h1>
+    <input type="number" id="totalclass"
+    placeholder="No. of Total Classes">
+    <p></p>
+    <input type="number" id="presentclass"
+    placeholder="Present Classes">
+    <p></p>
+    <button onclick = "calculate()">Calculate</button>
+    <p id= "calculated" ></p>
+    
+    
+  </div>
+  <script>
+  function calculate(){
+    let total = document.getElementById("totalclass").value;
+    let present = document.getElementById("presentclass").value;
+    
+    if(total =="" || present ==""){
+      alert("please enter the input ");
+      return;
+    }
+    
+    if(present > total){
+    alert("its not possible ");
+    return;
+  }
+    let  percentage = (present    /total) * 100; 
+  document.getElementById("calculated").innerHTML = "Total Attendance :" + percentage.toFixed(2)+"%";
+  }
+  </script>
+</body>
+
+</html>
